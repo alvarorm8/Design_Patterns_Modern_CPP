@@ -61,7 +61,7 @@ The patterns in this group are:
 
 Summary and explanation of the SOLID Principles.
 
-### SOLID_Principles
+### SOLID_Principles Solution
 
 This solution has several projects, one for each principle:
 
@@ -77,12 +77,27 @@ This solution has several projects, one for each principle:
 
 ## Section 3 - Builder
 
-*Motivation*
+**Motivation**
 
 There are simple objects which can be constructed with one call to its constructor, but there are some more complex.
 For those, having constructors with much arguments (10 for example) is not productive, instead, we can use piecewise construction.
 
 When piecewise construction is complex Builder pattern provides an API for constructing an object step by step.
+
+*1_Builder*
+
+Basic arquitecture of Builder pattern, with explanations of elements and why this pattern is used.
+
+*2_Groovy-style_Builder*
+
+Example of basic Builder pattern used with uniform initialization for an HTML application.
+
+*3_Builder_Facets**
+
+More complicated example of Builder pattern in which the object to build is very complex, so we need several builders to 
+manage different aspects of the object. This is know as a Builder Facets, which combines the Builder and Façade patterns.
+
+The main file is Facets.cpp.
 
 ## Section 4 - Factories
 
