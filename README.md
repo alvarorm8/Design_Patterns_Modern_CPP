@@ -138,6 +138,16 @@ with the 2 variations of it, the Object Oriented approach and the Functional app
 
 ## Section 5 - Prototype
 
+**Motivation**
+
+This pattern is used to copy objects and create new ones. This is useful when we have an already existing class (Prototype) and we copy it and modify it.
+
+This pattern requires deep copy support. The cloning of the objects has to be convenient, for example, using a Factory.
+
+The definition is basically: A partially or fully initialized object that you copy (clone) and make use of.
+
+**Solutions**
+
 ## Section 6 - Singleton
 
 ## Section 7 - Adapter
