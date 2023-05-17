@@ -84,6 +84,8 @@ For those, having constructors with much arguments (10 for example) is not produ
 
 When piecewise construction is complex Builder pattern provides an API for constructing an object step by step.
 
+**Solutions**
+
 *1_Builder*
 
 Basic arquitecture of Builder pattern, with explanations of elements and why this pattern is used.
@@ -100,6 +102,39 @@ manage different aspects of the object. This is know as a Builder Facets, which 
 The main file is Facets.cpp.
 
 ## Section 4 - Factories
+
+**Motivation**
+
+This patterns (or pattern since everything has the same idea of a Factory creation) comes into account when the object creation logic becomes too
+complicated even before using it. They're the Abstract Factory and the Factory Method.
+
+This happens for example when the constructors are not descriptive: you can not overload constructor with same arguments and different names, 
+if you define multiple optional parameters with default values it can be very confusing for clients to know which arguments have to be passed, which
+not, etc. 
+
+Here comes the Factory patterns, which are related to Wholesale construction, not piecewise unlike Builders in which we build the object in several steps.
+With Factory patterns, creation of objects can be outsourced to a separate function (Factory Method), a different class (Factory) or create
+a hierarchy of factories (Abstract Factory). Here Factory is not an original pattern from the gang of four, but is the same idea of factory patterns.
+
+**Solutions**
+
+*1_Factory_Method*
+
+The Factory Method pattern is explained with a simple class.
+
+*2_Factory*
+
+The Factory pattern is explained. This is not part of the original Gang of Four patterns, but it is useful enough. It's a specialization of 
+the Abstract Factory, since it creates a class but it's not abstract.
+
+*3_Inner_Factory*
+
+Explanation of the problem of the solution 2_Factory and the resolution with Inner Factory pattern.
+
+*4_Abstract_Factory*
+
+The previous sections are all variations of the Factory Method pattern, this is the other type of factories pattern. Abstract Factory is explained
+with the 2 variations of it, the Object Oriented approach and the Functional approach.
 
 ## Section 5 - Prototype
 
