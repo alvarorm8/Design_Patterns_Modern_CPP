@@ -12,172 +12,172 @@ using namespace std;
 
 struct Address
 {
-  string street;
-  string city;
-  int suite;
+    string street;
+    string city;
+    int suite;
 
 
-  Address(const string& street, const string& city, const int suite)
-    : street{street},
-      city{city},
-      suite{suite}
-  {
-  }
+    Address(const string& street, const string& city, const int suite)
+        : street{ street },
+        city{ city },
+        suite{ suite }
+    {
+    }
 
-  Address() {} // required for serialization
+    Address() {} // required for serialization
 
-  /*Address(const Address& other)
-    : street{other.street},
-      city{other.city},
-      suite{other.suite}
-  {
-  }*/
+    /*Address(const Address& other)
+        : street{other.street},
+        city{other.city},
+        suite{other.suite}
+    {
+    }*/
 
-  template <class archive>
-  void serialize(archive& ar, const unsigned version)
-  {
-    ar & street;
-    ar & city;
-    ar & suite;
-  }
+    template <class archive>
+    void serialize(archive& ar, const unsigned version)
+    {
+        ar& street;
+        ar& city;
+        ar& suite;
+    }
 
-  /*
-  The function serialize can be splitted into saveand load functions like this:
-  
-  BOOST_SERIALIZATION_SPLIT_MEMBER()
+    /*
+    The function serialize can be splitted into save and load functions like this:
 
-  template <class archive>
-  void save(archive& ar, const unsigned version) const
-  {
-    ar << street;
-    ar << city;
-    ar << suite;
-  }
+    BOOST_SERIALIZATION_SPLIT_MEMBER()
 
-  template <class archive>
-  void load(archive& ar, const unsigned version)
-  {
-    ar >> street;
-    ar >> city;
-    ar >> suite;
-  }*/
+    template <class archive>
+    void save(archive& ar, const unsigned version) const
+    {
+        ar << street;
+        ar << city;
+        ar << suite;
+    }
 
-  friend ostream& operator<<(ostream& os, const Address& obj);
+    template <class archive>
+    void load(archive& ar, const unsigned version)
+    {
+        ar >> street;
+        ar >> city;
+        ar >> suite;
+    }*/
+
+    friend ostream& operator<<(ostream& os, const Address& obj);
 };
 
 ostream& operator<<(ostream& os, const Address& obj)
 {
-  return os
-    << "street: " << obj.street
-    << " city: " << obj.city
-    << " suite: " << obj.suite;
+    return os
+        << "street: " << obj.street
+        << " city: " << obj.city
+        << " suite: " << obj.suite;
 }
 
 
 struct Contact
 {
-  string name;
-  Address* address;
+    string name;
+    Address* address;
 
-  Contact& operator=(const Contact& other)
-  {
-    if (this == &other)
-      return *this;
-    name = other.name;
-    address = other.address;
-    return *this;
-  }
+    Contact& operator=(const Contact& other)
+    {
+        if (this == &other)
+            return *this;
+        name = other.name;
+        address = other.address;
+        return *this;
+    }
 
-  Contact() /* :name(nullptr), address(nullptr)*/
-  {} // required for serialization
+    Contact() /* :name(nullptr), address(nullptr)*/
+    {} // required for serialization
 
-  Contact(string name, Address* address)
-    : name{name}, address{address}
-  {
-    //this->address = new Address{ *address };
-  }
+    Contact(string name, Address* address)
+        : name{ name }, address{ address }
+    {
+        //this->address = new Address{ *address };
+    }
 
-  Contact(const Contact& other)
-    : name{other.name}
-    //, address{ new Address{*other.address} }
-  {
-    address = new Address(
-      other.address->street, 
-      other.address->city, 
-      other.address->suite
-    );
-  }
+    Contact(const Contact& other)
+        : name{ other.name }
+        //, address{ new Address{*other.address} }
+    {
+        address = new Address(
+            other.address->street,
+            other.address->city,
+            other.address->suite
+        );
+    }
 private:
-  friend class boost::serialization::access; //so access can access the private members when serializing.
+    friend class boost::serialization::access; //so access can access the private members when serializing.
 
-  template <class archive>
-  void serialize(archive& ar, const unsigned version)
-  {
-    ar & name;
-    ar & address;
-  }
+    template <class archive>
+    void serialize(archive& ar, const unsigned version)
+    {
+        ar& name;
+        ar& address;
+    }
 
-  /*
-  The function serialize can be splitted into saveand load functions like this:
-  
-  BOOST_SERIALIZATION_SPLIT_MEMBER()
+    /*
+    The function serialize can be splitted into saveand load functions like this:
 
-  template <class archive>
-  void save(archive& ar, const unsigned version) const
-  {
-    ar << name;
-    ar << address;
-  }
+    BOOST_SERIALIZATION_SPLIT_MEMBER()
 
-  template <class archive>
-  void load(archive& ar, const unsigned version)
-  {
-    ar >> name;
-    ar >> address;
-  }
-  */
+    template <class archive>
+    void save(archive& ar, const unsigned version) const
+    {
+        ar << name;
+        ar << address;
+    }
+
+    template <class archive>
+    void load(archive& ar, const unsigned version)
+    {
+        ar >> name;
+        ar >> address;
+    }
+    */
 
 public:
-  ~Contact()
-  {
-    delete address;
-  }
+    ~Contact()
+    {
+        delete address;
+    }
 
 
-  friend ostream& operator<<(ostream& os, const Contact& obj);
+    friend ostream& operator<<(ostream& os, const Contact& obj);
 };
 
 ostream& operator<<(ostream& os, const Contact& obj)
 {
-  return os
-    << "name: " << obj.name
-    << " works at " << *obj.address; // note the star here
+    return os
+        << "name: " << obj.name
+        << " works at " << *obj.address; // note the star here
 }
 
 struct EmployeeFactory
 {
-  static Contact main;
-  static Contact aux;
+    static Contact main;
+    static Contact aux;
 
-  static unique_ptr<Contact> NewMainOfficeEmployee(string name, int suite)
-  {
-    //static Contact p{ "", new Address{ "123 East Dr", "London", 0 } };
-    return NewEmployee(name, suite, main);
-  }
+    static unique_ptr<Contact> NewMainOfficeEmployee(string name, int suite)
+    {
+        //static Contact p{ "", new Address{ "123 East Dr", "London", 0 } };
+        return NewEmployee(name, suite, main);
+    }
 
-  static unique_ptr<Contact> NewAuxOfficeEmployee(string name, int suite)
-  {
-    return NewEmployee(name, suite, aux);
-  }
+    static unique_ptr<Contact> NewAuxOfficeEmployee(string name, int suite)
+    {
+        return NewEmployee(name, suite, aux);
+    }
 
 private:
-  static unique_ptr<Contact> NewEmployee(string name, int suite, Contact& proto)
-  {
-    auto result = make_unique<Contact>(proto);
-    result->name = name;
-    result->address->suite = suite;
-    return result;
-  }
+    static unique_ptr<Contact> NewEmployee(string name, int suite, Contact& proto)
+    {
+        auto result = make_unique<Contact>(proto);
+        result->name = name;
+        result->address->suite = suite;
+        return result;
+    }
 };
 
 Contact EmployeeFactory::main{ "", new Address{ "123 East Dr", "London", 0 } };

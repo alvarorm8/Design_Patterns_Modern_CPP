@@ -61,7 +61,7 @@ The patterns in this group are:
 
 Summary and explanation of the SOLID Principles.
 
-### SOLID_Principles Solution
+**SOLID_Principles solution**
 
 This solution has several projects, one for each principle:
 
@@ -84,7 +84,7 @@ For those, having constructors with much arguments (10 for example) is not produ
 
 When piecewise construction is complex Builder pattern provides an API for constructing an object step by step.
 
-**Solutions**
+**Builder solution**
 
 *1_Builder*
 
@@ -101,6 +101,10 @@ manage different aspects of the object. This is know as a Builder Facets, which 
 
 The main file is Facets.cpp.
 
+*Assignment*
+
+The assignment of the section is done.
+
 ## Section 4 - Factories
 
 **Motivation**
@@ -116,7 +120,7 @@ Here comes the Factory patterns, which are related to Wholesale construction, no
 With Factory patterns, creation of objects can be outsourced to a separate function (Factory Method), a different class (Factory) or create
 a hierarchy of factories (Abstract Factory). Here Factory is not an original pattern from the gang of four, but is the same idea of factory patterns.
 
-**Solutions**
+**Factories solution**
 
 *1_Factory_Method*
 
@@ -136,6 +140,10 @@ Explanation of the problem of the solution 2_Factory and the resolution with Inn
 The previous sections are all variations of the Factory Method pattern, this is the other type of factories pattern. Abstract Factory is explained
 with the 2 variations of it, the Object Oriented approach and the Functional approach.
 
+*Assignment*
+
+The assignment of the section is done.
+
 ## Section 5 - Prototype
 
 **Motivation**
@@ -146,9 +154,44 @@ This pattern requires deep copy support. The cloning of the objects has to be co
 
 The definition is basically: A partially or fully initialized object that you copy (clone) and make use of.
 
-**Solutions**
+**Protoype solution**
+
+*Prototype*
+
+The prototype pattern is shown through copy constructor and assignment operator, a factory method and serialization.
+
+*Assignment*
+
+The assignment of the section is done.
 
 ## Section 6 - Singleton
+
+**Motivation**
+
+For some components of a system it only makes sense to have one instance of it, for example, a database repository, an object factory, when the constructor is really expensive
+when you don't want copies of the object, etc.
+
+**Singleton solution**
+
+*1_Singleton_Implementation*
+
+The singleton is implemented and several problems are fixed through the DI principle.
+
+*2_Singleton_lifetime_DI_Container*
+
+The singleton pattern is created through a boost DI container.
+
+*3_Monostate*
+
+The Monostate variation of the singleton pattern is shown but it's not recommended to use.
+
+*4_Multiton*
+
+The Multiton variation of the singleton pattern is presented.
+
+*Assignment*
+
+The assignment of the section is done.
 
 ## Section 7 - Adapter
 
