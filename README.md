@@ -195,38 +195,155 @@ The assignment of the section is done.
 
 ## Section 7 - Adapter
 
+**Motivation**
+
+The objective is to get the interface that you want from the interface you have.
+
+**Adapter solution**
+
+*AdapterVisual*
+
+The Adapter pattern is shown in this MFC application. The project does not work for me because of dependencies issues, but the explanations
+are done in AdapterVisual.cpp.
+
+*Assignment*
+
+The assignment of the section is done.
+
 ## Section 8 - Bridge
+
+**Motivation**
+
+
+
+**Bridge solution**
 
 ## Section 9 - Composite
 
+**Motivation**
+
+
+
+**Composite solution**
+
 ## Section 10 - Decorator
+
+**Motivation**
+
+
+
+**Decorator solution**
 
 ## Section 11 - Façade
 
+**Motivation**
+
+
+
+**Facade solution**
+
 ## Section 12 - Flyweight
+
+**Motivation**
+
+
+
+**Flyweight solution**
 
 ## Section 13 - Proxy
 
+**Motivation**
+
+
+
+**Proxy solution**
+
 ## Section 14 - Chain of Responsibility
+
+**Motivation**
+
+
+
+**Adapter solution**
 
 ## Section 15 - Command
 
+**Motivation**
+
+
+
+**Command solution**
+
 ## Section 16 - Interpreter
+
+**Motivation**
+
+
+
+**Interpreter solution**
 
 ## Section 17 - Iterator
 
+**Motivation**
+
+
+
+**Iterator solution**
+
 ## Section 18 - Mediator
+
+**Motivation**
+
+
+
+**Mediator solution**
 
 ## Section 19 - Memento
 
+**Motivation**
+
+
+
+**Memento solution**
+
 ## Section 20 - Observer
+
+**Motivation**
+
+
+
+**Observer solution**
 
 ## Section 21 - State
 
-## Section 22 - Strategy 
+**Motivation**
+
+
+
+**State solution**
+
+## Section 22 - Strategy
+
+**Motivation**
+
+
+
+**Strategy solution**
 
 ## Section 23 - Template Method
 
+**Motivation**
+
+
+
+**Template_Method solution**
+
 ## Section 24 - Visitor
+
+**Motivation**
+
+
+
+**Visitor solution**
 
 ## Section 25 - Course Summary
