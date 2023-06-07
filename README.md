@@ -214,9 +214,26 @@ The assignment of the section is done.
 
 **Motivation**
 
-
+The Bridge pattern is about connecting components together through abstractions. It is a mechanism that decouples an interface from an implementation.
+It prevents a "Cartesian Product" complexity explosion.
 
 **Bridge solution**
+
+*1_Pimpl_Idiom*
+
+The Pimpl Idiom is explained since it is a manifestation of the bridge design pattern, but slightly different.
+
+*2_Shrink_Wrapped_Pimpl*
+
+A library component (class) is created so the Pimpl Idiom pattern is easier to use. The class can be imported in any project easily.
+
+*3_Bridge_Implementation*
+
+The Bridge pattern is explained.
+
+*Assignment*
+
+The assignment of the section is done.
 
 ## Section 9 - Composite
 
