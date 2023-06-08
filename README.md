@@ -239,9 +239,28 @@ The assignment of the section is done.
 
 **Motivation**
 
+The Composite pattern is about treating individual and aggregate objects uniformly. Objects usea other objects' fields/properties/members through inheritance and composition (objects as members of other objects).
+For example, a grouping of shapes that consist of several shapes. 
 
+So Composite pattern allow us to treat singular objects and composite objects uniformly, for example, Foo and Collection<Foo> have common AP	Is and we can use those APIs without knowing if the object is single or composite.
 
 **Composite solution**
+
+*1_Geometric_Shapes*
+
+Composite pattern is used with shapes to be able to use just one function with single shapes or a group of shapes.
+
+*2_Neural_Network*
+
+Composite pattern is used to simulate the connection between single neurons and a layer of several neurons, all with only 1 function. CRTP (Curiously Recurring Template Pattern) pattern is used too.
+
+*3_Array-Backed_Properties*
+
+An example of an intersection of the composite and proxy patterns is shown. It has to do with the ways that fields are exposed from objects.
+
+*Assignment*
+
+The assignment of the section is done.
 
 ## Section 10 - Decorator
 
