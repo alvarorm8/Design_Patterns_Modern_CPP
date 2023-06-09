@@ -266,9 +266,19 @@ The assignment of the section is done.
 
 **Motivation**
 
+The objective of the pattern is to add behaviour without altering the class itself.
 
+The motivation is when you want new functionality but don't want to break the OCP or don't have access to the source code. Also, you respect the SRP since the new
+funcionality is in a new class. You need to be able to interact with the existing structures.
+
+There are two options: aggregate the decorated object as a reference in your new class and add the functionality or, you can inherit from the decorated object.
+First option is known as dynamic decorator and the second as static decorator.
 
 **Decorator solution**
+
+*1_Dynamic_Decorator*
+
+Dynamic, static and functional decorator are explained with their advantages and disadvantages.
 
 ## Section 11 - Façade
 
