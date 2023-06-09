@@ -280,13 +280,27 @@ First option is known as dynamic decorator and the second as static decorator.
 
 Dynamic, static and functional decorator are explained with their advantages and disadvantages.
 
+*Assignment*
+
+The assignment of the section is done.
+
 ## Section 11 - Façade
 
 **Motivation**
 
+The objective of this pattern is to expose several components through a single interface.
 
+The motivation comes with the fact that end-users of a software do not want to know about all the complexity and implementation details, they want to use it the simples way possible and 
+that it is usable.
 
-**Facade solution**
+So the façade provides a simple, easy to understand/user interface over a large and sophisticated body of code.
+
+**Bloom solution**
+
+*Bloom*
+
+A project from the professor is given where a console can be build and shown, but all the implementation details (creating a buffer, adding values, showing the window...) are hidden in a façade.
+The main files are Bloom.cpp and Console.h.
 
 ## Section 12 - Flyweight
 
