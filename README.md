@@ -306,9 +306,21 @@ The main files are Bloom.cpp and Console.h.
 
 **Motivation**
 
-
+The objective of this pattern is the space optimization. The idea is to avoid redundancy when storing data by storing externally the data associated with similar objects.
 
 **Flyweight solution**
+
+*1_Handmade_Flyweight*
+
+The flyweight pattern is used both handmade and with boost library.
+
+*2_Text_Formatting*
+
+The flyweight pattern is used with an application of text formatting.
+
+*Assignment*
+
+The assignment of the section is done.
 
 ## Section 13 - Proxy
 
