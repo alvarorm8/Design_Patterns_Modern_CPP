@@ -2,6 +2,8 @@
 
 This document contains information about the content of the sections and solutions in the repository, so it is easier to navigate and search information.
 
+From section 14, the projects change from VS to VSCode with WSL and docker. As explained in the document *Dev_environment_setup.pdf*.
+
 ## Types of Design Patterns
 
 First of all, a summary of the design patterns types, which are usually categorized in three different groups. This categorization comes after Erich Gamma, one 
@@ -326,15 +328,38 @@ The assignment of the section is done.
 
 **Motivation**
 
+A proxy is an inteface for accessing a particular resource. This interface looks like the interface of the object but in the backend it's behaviour is completely different.
 
+There are different types of proxies, depending on how it access the properties: communication, logging, virtual, guarding, etc. The reasons to build proxies are: the resource is 
+remote, is expensive to construct, may require logging, etc.
 
 **Proxy solution**
+
+*1_Smart_pointers*
+
+This solution explains that smart pointers are proxies.
+
+*2_Property_proxy*
+
+Property proxy is explained.
+
+*3_Virtual_proxy*
+
+Virtual proxy is explained.
+
+*4_Communication_proxy*
+
+Communication proxy is explained. There's a zip with the project with all the dependencies, the file here is only for knowledge.
+
+*Assignment*
+
+The assignment of the section is done.
 
 ## Section 14 - Chain of Responsibility
 
 **Motivation**
 
-
+It is a chain of components who all get a chance to process a command or a query, optionally having default processing implementation and abilitiy to terminate the processing chain. So the elements up in the chain don't make their processing.
 
 **Adapter solution**
 
