@@ -4,6 +4,8 @@ This document contains information about the content of the sections and solutio
 
 From section 14, the projects change from VS to VSCode with WSL and docker. As explained in the document *Dev_environment_setup.pdf*.
 
+To install Boost on linux: `sudo apt update && apt upgrade -y && apt install libboost-all-dev`
+
 ## Types of Design Patterns
 
 First of all, a summary of the design patterns types, which are usually categorized in three different groups. This categorization comes after Erich Gamma, one 
@@ -71,7 +73,7 @@ This solution has several projects, one for each principle:
 
 *2_Open_Closed*
 
-*3_Liskov_Substitution**
+*3_Liskov_Substitution*
 
 *4_Interface_Segregation*
 
@@ -96,7 +98,7 @@ Basic arquitecture of Builder pattern, with explanations of elements and why thi
 
 Example of basic Builder pattern used with uniform initialization for an HTML application.
 
-*3_Builder_Facets**
+*3_Builder_Facets*
 
 More complicated example of Builder pattern in which the object to build is very complex, so we need several builders to 
 manage different aspects of the object. This is know as a Builder Facets, which combines the Builder and Façade patterns.
