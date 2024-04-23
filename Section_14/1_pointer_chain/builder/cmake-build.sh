@@ -1,9 +1,3 @@
-# ©2023-2024 Airbus Defence and Space GmbH
-# ©2023-2024 Indra Sistemas SA, Indra Factoria Tecnologica
-# ©2023-2024 Thales SIX GTS France SAS, Thales AVS France SAS, Thales LAS France SAS, Thales DMS France SAS
-# Export Controlled ML22
-# VS nur für den Dienstgebrauch
-# NGWS RESTRICTED
 
 #!/bin/bash
 

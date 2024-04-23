@@ -1,10 +1,3 @@
-# ©2023-2024 Airbus Defence and Space GmbH
-# ©2023-2024 Indra Sistemas SA, Indra Factoria Tecnologica
-# ©2023-2024 Thales SIX GTS France SAS, Thales AVS France SAS, Thales LAS France SAS, Thales DMS France SAS
-# Export Controlled ML22
-# VS nur für den Dienstgebrauch
-# NGWS RESTRICTED
-
 # Sources
 # https://stackoverflow.com/questions/29191855/what-is-the-proper-way-to-use-pkg-config-from-cmake
 # https://stackoverflow.com/questions/44487053/set-pkg-config-path-in-cmake
@@ -28,10 +21,6 @@ include(GNUInstallDirs)
 
 ############################ Datamodel Types library ##########################
 
-############################ Boost library #########################
-
-find_package(Boost REQUIRED)
-
 ############################ GTest library #########################
 
 find_package(GTest REQUIRED)
@@ -40,7 +29,6 @@ find_package(GTest REQUIRED)
 
 # Set libraries needed for the project executable
 set(project_libs
-    ${Boost_LIBRARIES}
     ${GTEST_BOTH_LIBRARIES} #includes gtest and gtest_main
 )
 
@@ -69,7 +57,6 @@ target_compile_options(${PROJECT_NAME}
 target_include_directories(${PROJECT_NAME} 
     PUBLIC
         ${CMAKE_CURRENT_SOURCE_DIR}/src
-        ${Boost_INCLUDE_DIR}
         ${GTEST_INCLUDE_DIRS} # doesn't do anything on linux
 )
 

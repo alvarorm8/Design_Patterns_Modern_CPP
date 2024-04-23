@@ -1,10 +1,3 @@
-# ©2023-2024 Airbus Defence and Space GmbH
-# ©2023-2024 Indra Sistemas SA, Indra Factoria Tecnologica
-# ©2023-2024 Thales SIX GTS France SAS, Thales AVS France SAS, Thales LAS France SAS, Thales DMS France SAS
-# Export Controlled ML22
-# VS nur für den Dienstgebrauch
-# NGWS RESTRICTED
-
 # Sources
 # https://stackoverflow.com/questions/29191855/what-is-the-proper-way-to-use-pkg-config-from-cmake
 # https://stackoverflow.com/questions/44487053/set-pkg-config-path-in-cmake
