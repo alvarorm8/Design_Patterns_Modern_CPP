@@ -363,7 +363,19 @@ The assignment of the section is done.
 
 It is a chain of components who all get a chance to process a command or a query, optionally having default processing implementation and abilitiy to terminate the processing chain. So the elements up in the chain don't make their processing.
 
-**Adapter solution**
+**Folders in the section**
+
+*1_pointer_chain*
+
+Explains the classical way of doing a Chain of Responsibility pattern.
+
+*2_broker_chain*
+
+Explains the modern way of doing a Chain of Responsibility pattern.
+
+*3_assignment*
+
+The assignment of the section is done.
 
 ## Section 15 - Command
 
