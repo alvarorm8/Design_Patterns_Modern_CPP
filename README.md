@@ -294,8 +294,7 @@ The assignment of the section is done.
 
 The objective of this pattern is to expose several components through a single interface.
 
-The motivation comes with the fact that end-users of a software do not want to know about all the complexity and implementation details, they want to use it the simples way possible and 
-that it is usable.
+The motivation comes with the fact that end-users of a software do not want to know about all the complexity and implementation details, they want to use it the simples way possible and that it is usable.
 
 So the façade provides a simple, easy to understand/user interface over a large and sophisticated body of code.
 
@@ -332,8 +331,7 @@ The assignment of the section is done.
 
 A proxy is an inteface for accessing a particular resource. This interface looks like the interface of the object but in the backend it's behaviour is completely different.
 
-There are different types of proxies, depending on how it access the properties: communication, logging, virtual, guarding, etc. The reasons to build proxies are: the resource is 
-remote, is expensive to construct, may require logging, etc.
+There are different types of proxies, depending on how it access the properties: communication, logging, virtual, guarding, etc. The reasons to build proxies are: the resource is remote, is expensive to construct, may require logging, etc.
 
 **Proxy solution**
 
@@ -381,9 +379,30 @@ The assignment of the section is done.
 
 **Motivation**
 
+Ordinary C plus plus statements that you make they are what I would call perishable, meaning that after you assign a field, there is no record anywhere that the field has been assigned.
+This means that you cannot simply go ahead and undo a field or a property assignment or whatever it is that you are doing. And also the downside of this is you cannot take a sequence of the actions that you just made and you cannot serialize them to some database or something because that is actually something that you sometimes want.
 
+So what we want to do with the Command design pattern is we want to have a separate object which represents a particular operation. The most common use of the Command design pattern is GUI commands.
 
-**Command solution**
+So a command is an object which represents an instruction or a set of instructions to perform a particular action. Contains all the information that is necessary for the action to be taken.
+
+There is one thing that I wanted to mention which isn't directly tied to the subject of the Command design pattern, and that is this idea of command query separation (cqs) (seen in Section 14 subsection 2), because the word command appears as part of the command design pattern.
+
+So let's just remind ourselves what a command is. So a command is when you're asking for an action. And typically in the concept of command query separation, a command is something which is mutable in the sense that it causes a mutation of the object, but it doesn't have a return value, it doesn't have any result. Now, in command query separation, we separate the commands from the queries. And the second part of this is a query. So a query is when you're asking for information and queries are typically not causing any mutation.
+
+So we have this idea of command query separation, where you basically split your system into separate components and separate means of sending commands. So asking for changes and sending queries as well, and those can be implemented by the same components or you can completely separate the system.
+
+Now the reason why this is mentioned it is because the Gang of four doesn't mention queries. The Gang of four only mentions the command design pattern, but in the context of the Gang of Four book, I would say that both commands and queries, since they are wrapping some instructions in an object, they are both represented by the command design pattern.
+
+**Folders in the section**
+
+*1_Comand*
+
+*2_Undo_Operations*
+
+*3_Composite_Command_(Macro)*
+
+*4_Assignment*
 
 ## Section 16 - Interpreter
 
@@ -391,7 +410,7 @@ The assignment of the section is done.
 
 
 
-**Interpreter solution**
+**Folders in the section**
 
 ## Section 17 - Iterator
 
@@ -399,7 +418,7 @@ The assignment of the section is done.
 
 
 
-**Iterator solution**
+**Folders in the section**
 
 ## Section 18 - Mediator
 
@@ -407,7 +426,7 @@ The assignment of the section is done.
 
 
 
-**Mediator solution**
+**Folders in the section**
 
 ## Section 19 - Memento
 
@@ -415,7 +434,7 @@ The assignment of the section is done.
 
 
 
-**Memento solution**
+**Folders in the section**
 
 ## Section 20 - Observer
 
@@ -423,7 +442,7 @@ The assignment of the section is done.
 
 
 
-**Observer solution**
+**Folders in the section**
 
 ## Section 21 - State
 
@@ -431,7 +450,7 @@ The assignment of the section is done.
 
 
 
-**State solution**
+**Folders in the section**
 
 ## Section 22 - Strategy
 
@@ -439,7 +458,7 @@ The assignment of the section is done.
 
 
 
-**Strategy solution**
+**Folders in the section**
 
 ## Section 23 - Template Method
 
@@ -447,7 +466,7 @@ The assignment of the section is done.
 
 
 
-**Template_Method solution**
+**Folders in the section**
 
 ## Section 24 - Visitor
 
@@ -455,6 +474,6 @@ The assignment of the section is done.
 
 
 
-**Visitor solution**
+**Folders in the section**
 
 ## Section 25 - Course Summary
