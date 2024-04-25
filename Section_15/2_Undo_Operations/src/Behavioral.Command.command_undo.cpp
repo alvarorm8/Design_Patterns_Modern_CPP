@@ -87,68 +87,10 @@ struct BankAccountCommand : Command
   }
 };
 
-// vector doesn't have virtual dtor, but who cares?
-struct CompositeBankAccountCommand : vector<BankAccountCommand>, Command
-{
-  CompositeBankAccountCommand(const initializer_list<value_type>& _Ilist)
-    : vector<BankAccountCommand>(_Ilist)
-  {
-  }
-
-  void call() override
-  {
-    for (auto& cmd : *this)
-      cmd.call();
-  }
-
-  void undo() override
-  {
-    for (auto it = rbegin(); it != rend(); ++it)
-      it->undo();
-  }
-};
-
-struct DependentCompositeCommand : CompositeBankAccountCommand
-{
-  explicit DependentCompositeCommand(
-    const initializer_list<value_type>& _Ilist)
-    : CompositeBankAccountCommand{ _Ilist } {}
-
-  void call() override
-  {
-    bool ok = true;
-    for (auto& cmd : *this)
-    {
-      if (ok)
-      {
-        cmd.call();
-        ok = cmd.succeeded;
-      }
-      else
-      {
-        cmd.succeeded = false;
-      }
-    }
-  }
-};
-
-struct MoneyTransferCommand : DependentCompositeCommand
-{
-  MoneyTransferCommand(BankAccount& from,
-    BankAccount& to, int amount): 
-    DependentCompositeCommand
-    {
-      BankAccountCommand{from, BankAccountCommand::withdraw, amount},
-      BankAccountCommand{to, BankAccountCommand::deposit, amount}
-    } {}
-};
-
-
 int main()
 {
   BankAccount ba;
-  /*vector<BankAccountCommand> commands{*/
-  CompositeBankAccountCommand commands{
+  vector<BankAccountCommand> commands{
     BankAccountCommand{ ba, BankAccountCommand::deposit, 100 },
     BankAccountCommand{ ba, BankAccountCommand::withdraw, 200 }
   };
@@ -156,17 +98,15 @@ int main()
   cout << ba.balance << endl;
 
   // apply all the commands
-  /*for (auto& cmd : commands)
+  for (auto& cmd : commands)
   {
   cmd.call();
-  }*/
-  commands.call();
+  }
 
   cout << ba.balance << endl;
 
-  /*for_each(commands.rbegin(), commands.rend(),
-  [](const BankAccountCommand& cmd) { cmd.undo(); });*/
-  commands.undo();
+  for_each(commands.rbegin(), commands.rend(),
+  [](BankAccountCommand& cmd) { cmd.undo(); });
 
   cout << ba.balance << endl;
   return 0;

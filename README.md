@@ -243,7 +243,7 @@ The assignment of the section is done.
 
 **Motivation**
 
-The Composite pattern is about treating individual and aggregate objects uniformly. Objects usea other objects' fields/properties/members through inheritance and composition (objects as members of other objects).
+The Composite pattern is about treating individual and aggregate objects uniformly. Objects use other objects' fields/properties/members through inheritance and composition (objects as members of other objects).
 For example, a grouping of shapes that consist of several shapes. 
 
 So Composite pattern allow us to treat singular objects and composite objects uniformly, for example, Foo and Collection<Foo> have common AP	Is and we can use those APIs without knowing if the object is single or composite.
@@ -398,11 +398,19 @@ Now the reason why this is mentioned it is because the Gang of four doesn't ment
 
 *1_Comand*
 
+This section explains the Command pattern design with an example of a Bank Account.
+
 *2_Undo_Operations*
+
+This section extends the section 1 adding the undo operations to the example.
 
 *3_Composite_Command_(Macro)*
 
+This section takes the same example and enhaces it mixing the Command design pattern the Composite design pattern.
+
 *4_Assignment*
+
+The assignment of the section is done.
 
 ## Section 16 - Interpreter
 

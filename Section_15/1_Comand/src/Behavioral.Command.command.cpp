@@ -10,8 +10,7 @@ that you can also save somewhere there by having an audit log of everything that
 
 For that, we create the interface Command and the implement with BankAccountCommand.
 
-In the main, first we do it with the vector, and the for loop which calls the action function for each member of the vector,
-and later we use the CompositeBankAccountCommand class.
+In the main, we use a vector and a for loop which calls the action function for each member of the vector.
 */
 
 struct BankAccount
@@ -41,7 +40,6 @@ struct Command
 {
   virtual ~Command() = default;
   virtual void call() const = 0;
-  virtual void undo() const = 0;
 };
 
 // should really be BankAccountCommand
@@ -68,47 +66,12 @@ struct BankAccountCommand : Command
     default: break;
     }
   }
-
-  void undo() const override
-  {
-    switch (action)
-    {
-    case withdraw:
-      account.deposit(amount);
-      break;
-    case deposit:
-      account.withdraw(amount);
-      break;
-    default: break;
-    }
-  }
-};
-
-// vector doesn't have virtual dtor, but who cares?
-struct CompositeBankAccountCommand 
-  : vector<BankAccountCommand>, Command
-{
-  CompositeBankAccountCommand(const initializer_list<value_type>& items)
-    : vector<BankAccountCommand>(items) {}
-
-  void call() const override
-  {
-    for (auto& cmd : *this)
-      cmd.call();
-  }
-
-  void undo() const override
-  {
-    for (auto& cmd : *this)
-      cmd.undo();
-  }
 };
 
 int main()
 {
   BankAccount ba;
-  /*vector<BankAccountCommand> commands{*/
-  CompositeBankAccountCommand commands {
+  vector<BankAccountCommand> commands{
     BankAccountCommand{ba, BankAccountCommand::deposit, 100},
     BankAccountCommand{ba, BankAccountCommand::withdraw, 200}
   };
@@ -116,17 +79,10 @@ int main()
   cout << ba.balance << endl;
 
   // apply all the commands
-  /*for (auto& cmd : commands)
+  for (auto& cmd : commands)
   {
     cmd.call();
-  }*/
-  commands.call();
-
-  cout << ba.balance << endl;
-
-  /*for_each(commands.rbegin(), commands.rend(),
-    [](const BankAccountCommand& cmd) { cmd.undo(); });*/
-  commands.undo();
+  }
 
   cout << ba.balance << endl;
   return 0;

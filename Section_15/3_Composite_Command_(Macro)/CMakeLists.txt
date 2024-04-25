@@ -10,25 +10,10 @@ cmake_minimum_required(VERSION 3.22) # setting this is required
 cmake_policy(SET CMP0057 NEW) # Removes warning
 
 # Set project name, version, description and language
-project(14_Assignment VERSION 1.0 DESCRIPTION "Section 14 Assignment section" LANGUAGES CXX)
+project(15_Composite_Command VERSION 1.0 DESCRIPTION "Section 15 Composite Command section" LANGUAGES CXX)
 
 # Needed for using variables CMAKE_INSTALL_*DIR
 include(GNUInstallDirs)
-
-###############################################################################
-## Dependencies ###############################################################
-###############################################################################
-
-############################ GTest library #########################
-
-find_package(GTest REQUIRED)
-
-############################ Project libraries #########################
-
-# Set libraries needed for the project executable
-set(project_libs
-    ${GTEST_BOTH_LIBRARIES} #includes gtest and gtest_main
-)
 
 ###############################################################################
 ## Target definitions #########################################################
@@ -36,8 +21,7 @@ set(project_libs
 
 # Select source files
 set(PROJECT_SOURCE_FILES
-    #src/Behavioral.ChainOfResponsibility.CoRCodingExercise.cpp
-    src/exercise.cpp
+    src/Behavioral.Command.command_composite.cpp
 )
 
 # Create project executable including source files, main in included separately because in the test executable the main can not be added or
@@ -56,12 +40,4 @@ target_compile_options(${PROJECT_NAME}
 target_include_directories(${PROJECT_NAME} 
     PUBLIC
         ${CMAKE_CURRENT_SOURCE_DIR}/src
-        ${GTEST_INCLUDE_DIRS} # doesn't do anything on linux
 )
-
-target_link_libraries(${PROJECT_NAME}
-    PUBLIC
-        ${project_libs}
-)
-
-add_test(${PROJECT_NAME}Test ${PROJECT_NAME}Test)

@@ -10,7 +10,7 @@ cmake_minimum_required(VERSION 3.22) # setting this is required
 cmake_policy(SET CMP0057 NEW) # Removes warning
 
 # Set project name, version, description and language
-project(14_Assignment VERSION 1.0 DESCRIPTION "Section 14 Assignment section" LANGUAGES CXX)
+project(15_Assignment VERSION 1.0 DESCRIPTION "Section 15 assignment section" LANGUAGES CXX)
 
 # Needed for using variables CMAKE_INSTALL_*DIR
 include(GNUInstallDirs)
@@ -36,7 +36,7 @@ set(project_libs
 
 # Select source files
 set(PROJECT_SOURCE_FILES
-    #src/Behavioral.ChainOfResponsibility.CoRCodingExercise.cpp
+    #src/Behavioral.Command.CommandCodingExercise.cpp
     src/exercise.cpp
 )
 
@@ -56,7 +56,6 @@ target_compile_options(${PROJECT_NAME}
 target_include_directories(${PROJECT_NAME} 
     PUBLIC
         ${CMAKE_CURRENT_SOURCE_DIR}/src
-        ${GTEST_INCLUDE_DIRS} # doesn't do anything on linux
 )
 
 target_link_libraries(${PROJECT_NAME}
