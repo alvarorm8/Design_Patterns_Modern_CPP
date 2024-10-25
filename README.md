@@ -416,9 +416,31 @@ The assignment of the section is done.
 
 **Motivation**
 
+The interpreter pattern is everywhere in programming. Some examples are the programming languages compilers, interpreters for languages like python, HTML, XML, regular expressions... all those have in common the idea of taking strings and turning them into object oriented objects.
 
+The challenge of the interpreter design pattern is turning strings into object oriented structures. It is a component which processes structured text data using two stages. The first one is called lexing and it turns the string into separate lexical tokens (split it into different self-contained pieces of information with no semantic meaning). The second stage is called parsing, which takes the sequence of tokens and tries to turn it into some sort of meaningful, object oriented representation.
 
 **Folders in the section**
+
+*1_handmade_interpreter*
+
+A handmade interpreter is done in this section.
+
+*2_interpreter_boost_spirit*
+
+An example of a real life project for designing a programming language. It is a Visual Studio Solution whose URL is https://github.com/nesteruk/tlon.
+
+So essentially the programming language doesn't compile into native code. What it does instead is it gets translated into C++. So this kind of construct is made possible because it uses a library in order to help building the language. And the library is called Boost Spirit.
+
+The files of the library allow you to build the parser using some predefined constructs.
+
+In the ast.hpp file, the definition of the abstract syntax tree that the project has for the different parts of the language is presented. It uses a two part or double dispatch visitor. The interesting thing about this is that all of these elements are subsequently adapted using boost fusion. Now Boost Fusion is yet another library that's actually being used by Boost spirit. The reason why it is used is so that when we actually build the parsing process, it can leverage all the *BOOST_FUSION_* structures defined.
+
+In the parser.hpp file, we have a few predefined structures from Boost spirit, and these predefined structures are, for example, the grammar base class. So we're defining a grammar for a particular kind of file. In this case, it's a file in the learn programming language. Certain rules for the grammar are defined. The grammar is kind of like the backus-naur form. If you're not familiar with the Backus-naur form, it's kind of like regular expressions, but for languages as opposed to text. So having constructed all of this, what I then do is I use some of the code from Spirit once again in order to parse a string. So I have an input file, I pass the entire file and I try to get it into this object oriented format and subsequently print it into C plus plus. 
+
+In the cpp_printer.hpp a printer is defined. So essentially a printer is just a visitor that does double dispatch, it inherits from a printer base class and in the file, special rules are created for printing.
+
+So this is essentially an illustration of how using a framework can let you make a parser more convenient. Now one thing you'll notice it's also very important to note is that there is no explicit lexer here, there is no explicit lexical part at no point in time am I keeping lists of tokens. This might be done behind the scenes, but I don't really care because all I'm interested in is basically taking a large chunk of text turning it into some object oriented structure and then traversing that structure using a visitor to actually print something meaningful on the right hand side.
 
 ## Section 17 - Iterator
 
