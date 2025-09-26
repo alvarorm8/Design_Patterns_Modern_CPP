@@ -10,7 +10,7 @@ cmake_minimum_required(VERSION 3.22) # setting this is required
 cmake_policy(SET CMP0057 NEW) # Removes warning
 
 # Set project name, version, description and language
-project(14_Assignment VERSION 1.0 DESCRIPTION "Section 14 Assignment section" LANGUAGES CXX)
+project(17_Iterator VERSION 1.0 DESCRIPTION "Section 16 hand made interpreter section" LANGUAGES CXX)
 
 # Needed for using variables CMAKE_INSTALL_*DIR
 include(GNUInstallDirs)
@@ -19,11 +19,16 @@ include(GNUInstallDirs)
 ## Dependencies ###############################################################
 ###############################################################################
 
-############################ GTest library #########################
+############################ Boost library #########################
 
-find_package(GTest 
-            REQUIRED
-            PATHS /usr/local/googletest NO_DEFAULT_PATH)
+find_package(Boost REQUIRED)
+
+############################ Project libraries #########################
+
+# Set libraries needed for the project executable
+set(project_libs
+    ${Boost_LIBRARIES}
+)
 
 ###############################################################################
 ## Target definitions #########################################################
@@ -31,8 +36,7 @@ find_package(GTest
 
 # Select source files
 set(PROJECT_SOURCE_FILES
-    #src/Behavioral.ChainOfResponsibility.CoRCodingExercise.cpp
-    src/exercise.cpp
+    src/Behavioral.Iterator.iterator.cpp
 )
 
 # Create project executable including source files, main in included separately because in the test executable the main can not be added or
@@ -51,13 +55,10 @@ target_compile_options(${PROJECT_NAME}
 target_include_directories(${PROJECT_NAME} 
     PUBLIC
         ${CMAKE_CURRENT_SOURCE_DIR}/src
-        /usr/local/googletest/include
+        ${Boost_INCLUDE_DIRS}
 )
 
 target_link_libraries(${PROJECT_NAME}
     PUBLIC
-        GTest::gtest
-        GTest::gtest_main
+        ${project_libs}
 )
-
-add_test(${PROJECT_NAME}Test ${PROJECT_NAME}Test)

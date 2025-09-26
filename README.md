@@ -4,7 +4,7 @@ This document contains information about the content of the sections and solutio
 
 From section 14, the projects change from VS to VSCode with WSL and docker. As explained in the document *Dev_environment_setup.pdf*.
 
-To install Boost on linux: `sudo apt update && apt upgrade -y && apt install libboost-all-dev`
+To install Boost on linux: `sudo apt update && apt upgrade -y && apt install libboost-all-dev`, so it is only necessary for the Visual Studio project that don't have CMake.
 
 ## Types of Design Patterns
 
@@ -446,6 +446,14 @@ So this is essentially an illustration of how using a framework can let you make
 
 **Motivation**
 
+Iteration (traversal) is a core functionality of various data structures. 
+
+An iterator is a class that facilitates the traversal
+
+- Keeps a reference to the current element
+- Knows how to move to a different element
+
+Can be used implicitly  (e.g. Range-based for, coroutines)
 
 
 **Folders in the section**

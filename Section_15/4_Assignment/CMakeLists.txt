@@ -21,14 +21,9 @@ include(GNUInstallDirs)
 
 ############################ GTest library #########################
 
-find_package(GTest REQUIRED)
-
-############################ Project libraries #########################
-
-# Set libraries needed for the project executable
-set(project_libs
-    ${GTEST_BOTH_LIBRARIES} #includes gtest and gtest_main
-)
+find_package(GTest 
+            REQUIRED
+            PATHS /usr/local/googletest NO_DEFAULT_PATH)
 
 ###############################################################################
 ## Target definitions #########################################################
@@ -56,11 +51,13 @@ target_compile_options(${PROJECT_NAME}
 target_include_directories(${PROJECT_NAME} 
     PUBLIC
         ${CMAKE_CURRENT_SOURCE_DIR}/src
+        /usr/local/googletest/include
 )
 
 target_link_libraries(${PROJECT_NAME}
     PUBLIC
-        ${project_libs}
+        GTest::gtest
+        GTest::gtest_main
 )
 
 add_test(${PROJECT_NAME}Test ${PROJECT_NAME}Test)
