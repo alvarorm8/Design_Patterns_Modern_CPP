@@ -455,6 +455,8 @@ An iterator is a class that facilitates the traversal
 
 Can be used implicitly  (e.g. Range-based for, coroutines)
 
+Typically requires of != and ++ operators.
+
 
 **Folders in the section**
 

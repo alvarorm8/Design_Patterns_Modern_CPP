@@ -49,6 +49,16 @@ void std_iterators()
   }
 }
 
+// Here we are defining a tree class, where we have the tree itself, an element, its parents and childs.
+// For that, a Node class is defined.
+// Later, the BinaryTree class is defined, were we define the preorder iterator which contains other iterators like the * and the ++
+// and define with that preorder iterator the iterators begin and end.
+// Later we define the pre_order_traversal class, which eases the way of iterating over the elements. The problem with this class is that
+// in the ++ operator we are not using recursion to iterate over the elements and we can not store the elements, since it is called once at a time,
+// which implies a complex implementation in the iterators.
+// To fix that, we can use parts of the implementation of coroutines, which are used in the class post_order, which makes the use of recursion
+// possible, so the implementation is much simpler
+
 template <typename T> struct BinaryTree;
 
 // todo: refactor to refer to parent instead of entire tree
