@@ -4,7 +4,7 @@ This document contains information about the content of the sections and solutio
 
 From section 14, the projects change from VS to VSCode with WSL and docker. As explained in the document *Dev_environment_setup.pdf*.
 
-To install Boost on linux: `sudo apt update && apt upgrade -y && apt install libboost-all-dev`, so it is only necessary for the Visual Studio project that don't have CMake.
+To install Boost on linux: `sudo apt update && sudo apt upgrade -y && sudo apt install libboost-all-dev`, so the folder 3rdParty is only necessary for the Visual Studio projects that don't have CMake.
 
 ## Types of Design Patterns
 
@@ -442,6 +442,10 @@ In the cpp_printer.hpp a printer is defined. So essentially a printer is just a 
 
 So this is essentially an illustration of how using a framework can let you make a parser more convenient. Now one thing you'll notice it's also very important to note is that there is no explicit lexer here, there is no explicit lexical part at no point in time am I keeping lists of tokens. This might be done behind the scenes, but I don't really care because all I'm interested in is basically taking a large chunk of text turning it into some object oriented structure and then traversing that structure using a visitor to actually print something meaningful on the right hand side.
 
+*3_Assignment*
+
+The assignment of the section is done.
+
 ## Section 17 - Iterator
 
 **Motivation**
@@ -457,16 +461,41 @@ Can be used implicitly  (e.g. Range-based for, coroutines)
 
 Typically requires of != and ++ operators.
 
-
 **Folders in the section**
+
+*1_Iterator*
+
+Implementation of the iterator pattern using std iterators, later a manual implementation which is harder to understand and create, and lastly implementation using coroutines, which eases the implementation.
+
+*2_Boost_iterator*
+
+Implementation of the iterator using Boost iterator facade, which facilitates the implementation.
+
+*3_Assignment*
+
+The assignment of the section is done.
 
 ## Section 18 - Mediator
 
 **Motivation**
 
+Facilitates the communication between components by letting the components be aware of the presence or absence of the others.
 
+Components may go in a out of a system at any time, so it makes no sense to have direct references to one another since the references may go dead.
+
+The solution is to make all the components to refer to some central component which facilitates the communication.
+
+The mediator is a component that facilitates the communication between other components without them necessarily being aware of each other or having a direct reference to each other.
 
 **Folders in the section**
+
+*1_ChatRoom*
+
+*2_EventBroker*
+
+*3_Assignment*
+
+The assignment of the section is done.
 
 ## Section 19 - Memento
 
