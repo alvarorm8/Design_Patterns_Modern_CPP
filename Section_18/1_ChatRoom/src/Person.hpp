@@ -3,6 +3,14 @@
 #include <vector>
 using namespace std;
 
+/*
+Here we define a person in the chatroom. All the persons are going to have a reference or pointer to the mediator.
+This is how typically goes with this pattern. The mediator can be a singleton, or a global static variable, but there's only one 
+in the whole system.
+
+We define several functions like the say to send a message to all people, pm to send a message to one person, etc.
+*/
+
 struct ChatRoom;
 
 struct Person {

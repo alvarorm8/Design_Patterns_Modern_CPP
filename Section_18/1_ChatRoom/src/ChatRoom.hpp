@@ -1,6 +1,11 @@
 #pragma once
 #include <algorithm>
 
+/*
+here we implement the chatroom class, which is the mediator.
+It has several functions like the broadcast, join to display a message when someone joins the chat, etc.
+*/
+
 struct ChatRoom
 {
   vector<Person*> people;

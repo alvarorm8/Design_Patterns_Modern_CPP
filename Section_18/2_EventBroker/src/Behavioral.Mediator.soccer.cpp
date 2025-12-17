@@ -1,3 +1,11 @@
+/*
+Here we implement a system where there's a game going on, we have some players and a coach. 
+We want the coach to realise when something happens to react to the event.
+To receive the notifications we are going to use boost/signals2.
+
+Here the mediator class is the Game class, which have the signal declared to transmit the information.
+*/
+
 #include <iostream>
 #include <string>
 #include <vector>

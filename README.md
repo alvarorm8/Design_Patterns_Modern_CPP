@@ -487,11 +487,19 @@ The solution is to make all the components to refer to some central component wh
 
 The mediator is a component that facilitates the communication between other components without them necessarily being aware of each other or having a direct reference to each other.
 
+The mediator usually is a singleton since there's only one in the entire system. It engages bidirectinoal communication with its connected components (the mediator has functions which the components can call,
+and viceversa). It is usually included in the constructor as a parameter to ensure that the mediator is available in all the components.
+
 **Folders in the section**
 
 *1_ChatRoom*
 
+The classic example of the Mediator pattern is developed. In this example a chatroom is generated, where people join and can chat.
+
 *2_EventBroker*
+
+An event broker is implemented in this section (this was also seen in the chain of responsibility section). In the chain of responsibility we look to build a sequence of objects which can process
+a particular event one after another. Here, we are interested in delivering the events in a centralised way. This centralisation is going to be developed using the observer pattern and the mediator pattern.
 
 *3_Assignment*
 

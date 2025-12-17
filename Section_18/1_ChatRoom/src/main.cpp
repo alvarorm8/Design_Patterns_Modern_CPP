@@ -1,6 +1,14 @@
 #include "Person.hpp"
 #include "ChatRoom.hpp"
 
+/*
+
+The mediator is a central component, and all the other components of the system have a reference to it.
+The other components communicate exclusively through the mediator component, since they don't have any reference
+to the others.
+
+*/
+
 int main()
 {
   ChatRoom room;

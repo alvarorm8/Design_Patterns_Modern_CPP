@@ -1,3 +1,4 @@
+
 #!/bin/bash
 
 getPath()
@@ -14,8 +15,29 @@ getPath()
 # stop on first error
 set -e
 
+if [ $# -ne 1 ]; then
+    echo "Error: the number or arguments does not match the required ones!"
+    echo "Arguments accepted:"
+    echo "- Option to build:"
+    echo "    1. Release"
+    echo "    2. Debug"
+    exit 1
+fi
+
 getPath
 
 BUILD_DIR=${DIR}/../build
 
-${BUILD_DIR}/18_Mediator
+if [ -d "${BUILD_DIR}" ]; then
+    rm -rf ${BUILD_DIR}
+fi
+
+mkdir ${BUILD_DIR}
+
+cd ${BUILD_DIR}
+if [ $1 -eq 2 ]; then
+    cmake -DCMAKE_BUILD_TYPE="Debug" ..
+else
+    cmake ..
+fi
+cmake --build .

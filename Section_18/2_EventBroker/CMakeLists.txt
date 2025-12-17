@@ -36,9 +36,7 @@ set(project_libs
 
 # Select source files
 set(PROJECT_SOURCE_FILES
-    src/ChatRoom.cpp
-    src/Person.cpp
-    src/main.cpp
+    src/Behavioral.Mediator.soccer.cpp
 )
 
 # Create project executable including source files, main in included separately because in the test executable the main can not be added or
