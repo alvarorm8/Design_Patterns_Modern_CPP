@@ -18,4 +18,4 @@ getPath
 
 BUILD_DIR=${DIR}/../build
 
-${BUILD_DIR}/18_Assignment
+${BUILD_DIR}/19_Memento

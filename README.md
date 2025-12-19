@@ -509,9 +509,31 @@ The assignment of the section is done.
 
 **Motivation**
 
+Keep a memento (memories) of an object's state to return to that state.
+
+An object goes through a set of changes, there are different ways of navigating through those changes:
+
+- One way is to recorde every change (Command pattern) and teach a command to "undo" itself.
+- Another way is to save snapshots of the system and allow to go back a particular snapshot (simpler way).
+
+A memento is a class which represents a token or identifier representing the system state. It lets us roll back to the state whe the token was generated. The token may or may not directly expose state information, but typically
+is unmutable and does not have functions on its own appart from the constructor/destructor, so you can see the information of the state, but it does not allow you to change the system unless you explicitly insert the token into the system and roll back to the state.
+
+There are also cases when a memento causes the restoration of a state in it´s destructor. For example if we have a system which is peforming some actions, like printing data with a specific indentation, we can 
+have a class which serves as memento whose constructor increases the indentation of the printer, and its destructor decreases again the indentation of the printer. In this way, if we create an object as a local variable
+of the memento class in a function, and print whatever we want, at the exit of the function the memento object will be destroyed, so the indentation will be back at the initial state. This kind of memento is an alternative
+approach, since we don´t explicitly use the memento to restore to a specific state, but it is done automatically.
 
 
 **Folders in the section**
+
+*1_Memento*
+
+A memento example is created with a Bank Account. Several options like restore the bank to a specific state, undo and redo operations, etc., are added.
+
+*2_Assignment*
+
+The assignment of the section is done.
 
 ## Section 20 - Observer
 
