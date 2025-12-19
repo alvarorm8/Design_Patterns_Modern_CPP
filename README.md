@@ -539,9 +539,33 @@ The assignment of the section is done.
 
 **Motivation**
 
+Getting notification when things happen.
 
+Sometimes we need to be informed when certain things happen:
+
+- Object's field changes
+- Object does something
+- Some external event occurs
+
+We want to listen to events and notified when they occur.
+
+The terms are event or signal for the things that happen, and subscriber or slot for the ones intereted in receiving the notifications. The first one is for the general case
+while the second one is used in libraries like the boost signals library.
+
+An observer is an object that wishes to be informed about events happening in the system. The entity generating the events is an observable.
+
+The observable provides a way of subscribing to an event (signal)
+The obsever performs the subscription
 
 **Folders in the section**
+
+*1_Observer*
+
+An observer example is created both with manual implementation and with boost:signals2 library, which eases the implementation.
+
+*2_Assignment*
+
+The assignment of the section is done.
 
 ## Section 21 - State
 
