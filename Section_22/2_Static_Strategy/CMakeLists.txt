@@ -10,7 +10,7 @@ cmake_minimum_required(VERSION 3.22) # setting this is required
 cmake_policy(SET CMP0057 NEW) # Removes warning
 
 # Set project name, version, description and language
-project(19_Memento VERSION 1.0 LANGUAGES CXX)
+project(22_Static_Strategy VERSION 1.0 LANGUAGES CXX)
 
 # Needed for using variables CMAKE_INSTALL_*DIR
 include(GNUInstallDirs)
@@ -36,7 +36,7 @@ set(project_libs
 
 # Select source files
 set(PROJECT_SOURCE_FILES
-    src/Behavioral.Memento.memento.cpp
+    src/Behavioral.Strategy.strategy_static.cpp
 )
 
 # Create project executable including source files, main in included separately because in the test executable the main can not be added or
@@ -46,7 +46,7 @@ add_executable(${PROJECT_NAME} ${PROJECT_SOURCE_FILES})
 # Add some compiler flags for the project executable
 target_compile_options(${PROJECT_NAME} 
     PUBLIC 
-        -std=c++17 
+        -std=c++17
         -Wall 
         -Wfloat-conversion
 )

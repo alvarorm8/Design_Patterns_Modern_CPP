@@ -10,7 +10,7 @@ cmake_minimum_required(VERSION 3.22) # setting this is required
 cmake_policy(SET CMP0057 NEW) # Removes warning
 
 # Set project name, version, description and language
-project(19_Memento VERSION 1.0 LANGUAGES CXX)
+project(22_Assignment VERSION 1.0 LANGUAGES CXX)
 
 # Needed for using variables CMAKE_INSTALL_*DIR
 include(GNUInstallDirs)
@@ -19,16 +19,11 @@ include(GNUInstallDirs)
 ## Dependencies ###############################################################
 ###############################################################################
 
-############################ Boost library #########################
+############################ GTest library #########################
 
-find_package(Boost REQUIRED)
-
-############################ Project libraries #########################
-
-# Set libraries needed for the project executable
-set(project_libs
-    ${Boost_LIBRARIES}
-)
+find_package(GTest 
+            REQUIRED
+            PATHS /usr/local/googletest NO_DEFAULT_PATH)
 
 ###############################################################################
 ## Target definitions #########################################################
@@ -36,7 +31,8 @@ set(project_libs
 
 # Select source files
 set(PROJECT_SOURCE_FILES
-    src/Behavioral.Memento.memento.cpp
+    #Behavioral.Strategy.StrategyCodingExercise.cpp
+    src/exercise.cpp
 )
 
 # Create project executable including source files, main in included separately because in the test executable the main can not be added or
@@ -46,7 +42,7 @@ add_executable(${PROJECT_NAME} ${PROJECT_SOURCE_FILES})
 # Add some compiler flags for the project executable
 target_compile_options(${PROJECT_NAME} 
     PUBLIC 
-        -std=c++17 
+        -std=c++17
         -Wall 
         -Wfloat-conversion
 )
@@ -55,10 +51,13 @@ target_compile_options(${PROJECT_NAME}
 target_include_directories(${PROJECT_NAME} 
     PUBLIC
         ${CMAKE_CURRENT_SOURCE_DIR}/src
-        ${Boost_INCLUDE_DIRS}
+        /usr/local/googletest/include
 )
 
 target_link_libraries(${PROJECT_NAME}
     PUBLIC
-        ${project_libs}
+        GTest::gtest
+        GTest::gtest_main
 )
+
+add_test(${PROJECT_NAME}Test ${PROJECT_NAME}Test)

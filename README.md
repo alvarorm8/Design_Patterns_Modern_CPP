@@ -598,20 +598,57 @@ The assignment of the section is done.
 
 ## Section 22 - Strategy
 
-
 **Motivation**
 
+System behaviour partially specified at runtime. 
 
+Many algorithms can be decomposed into higher and lower level parts. The high level algorithm can be reused, while the low level parts are specific to the different problems.
+
+The Strategy design patern enables the exact behaviour of a system to be selected either at run-time (dynamic strategy) or compile-time (static strategy). This is also known as policy, specially in the C++ world.
+
+In the dynamic strategy, we can change the selection in runtime, while on the static strategy, we can not do this.
 
 **Folders in the section**
+
+*1_Dynamic_Strategy*
+
+An example of dynamic strategy is implemented where we can select to print data in different formats.
+
+*2_Static_Strategy*
+
+An example of static strategy is implemented where we can select to print data in different formats.
+
+*3_Assignment*
+
+The assignment of the section is done.
 
 ## Section 23 - Template Method
 
 **Motivation**
 
+A high-level blueprint for an algorithm to be completed by inheritors.
 
+As we have seen in the Strategy pattern, algorithms can be decomposed into common parts (high level) + specific parts (low levels). 
+
+The Strategy design pattern does this through composition:
+    - High-level algorithm uses an interface
+    - Concrete implementations implement the interface
+
+The Template design pattern does this through inheritance:
+    - Overall algorithm makes use of abstract member
+    - Inhertitors override the abstract member
+
+The Template method design pattern allows us to define the 'skeleton' of the algorithm, with concrete implementations defined in subclasses.
 
 **Folders in the section**
+
+*1_Template_Method*
+
+An example of the Template Method pattern is implemented with an example of a game with different players.
+
+*2_Assignment*
+
+The assignment of the section is done.
 
 ## Section 24 - Visitor
 

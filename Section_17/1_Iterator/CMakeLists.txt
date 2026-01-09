@@ -10,7 +10,7 @@ cmake_minimum_required(VERSION 3.22) # setting this is required
 cmake_policy(SET CMP0057 NEW) # Removes warning
 
 # Set project name, version, description and language
-project(17_Iterator VERSION 1.0 DESCRIPTION "Section 16 hand made interpreter section" LANGUAGES CXX)
+project(17_Iterator VERSION 1.0 LANGUAGES CXX)
 
 # Needed for using variables CMAKE_INSTALL_*DIR
 include(GNUInstallDirs)
