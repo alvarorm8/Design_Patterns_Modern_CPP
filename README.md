@@ -571,11 +571,33 @@ The assignment of the section is done.
 
 **Motivation**
 
+The state design pattern is a pattern in which the object's behaviour is determined by its state. An object transitions from one state to another (something needs to trigger a transition).
 
+A formalised construct which manages state and transitions is called a state machine. This usually is class, which can be developed by ourselves or imported from another library. Normally this second
+approach is better, since the library is more robust and offers additional funcionalities.
+
+This design pattern makes sense when the complexity is sufficient.
 
 **Folders in the section**
 
+*1_Classic*
+
+The classic way of creating the state machine is shown. This implementation is currently not used since the way of implementing it is not realistic in modern code.
+
+*2_Handmade*
+
+A handmade example of the state pattern is shown. This type of implementation is easier than the previous one, basically based on enumerations and maps to define the state machine.
+
+*3_Boost_MSM*
+
+The state machine is created using Boost MSM (meta state machine) library. Boost has two libraries for state machines, this is one of them.
+
+*4_Assignment*
+
+The assignment of the section is done.
+
 ## Section 22 - Strategy
+
 
 **Motivation**
 
