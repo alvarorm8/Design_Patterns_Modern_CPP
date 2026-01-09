@@ -654,8 +654,36 @@ The assignment of the section is done.
 
 **Motivation**
 
+This is a complex pattern. Let´s suppose we have a hierarchy of documents elements and you need to defined some new operation on an entire class hierarchy.
 
+You don´t want to keep modifying every class in the hierarchy, since this is very tedious and breaks the open close principle (if you have code that has been already
+tested, you don't want to modify it, instead you should use inheritance for example) and the single responsibility principle (you are adding more functionality to the classes).
+
+The downside is that you need access to the non-common aspects of classes in the hierarchy, since for all the elements in the classes a single interface wouldn't work.
+
+Instead, you want to create an external component to handle the new operations, taking the objects and operating with them. The way of working should avoid type checks, since the usage
+of dynamic casting to check the type is possible but it is not scalable.
+
+So, the visitor design pattern is a pattern where a component (visitor) is allowed to traverse the entire inheritance hierarchy. Implemented by propagating a single visit() method throughout
+the entire hierarchy, instead of implementing the visit method in each visitor. This way you have the hierarchy with the visit method, and then you can define visitors, which fulfills the 
+open close and single responsibility principles.
 
 **Folders in the section**
+
+*1_Intrusive_visitor*
+
+*2_Reflective_visitor*
+
+*3_Classic_visitor*
+
+*4_Acyclic_visitor*
+
+*5_Multimethods*
+
+*6_Variant_and_std_visit*
+
+*7_Assignment*
+
+The assignment of the section is done.
 
 ## Section 25 - Course Summary
