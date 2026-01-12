@@ -4,6 +4,17 @@
 #include <iostream>
 using namespace std;
 
+/*
+In this example we have the general classes Expression, DoubleExpression and AdditionExpression, which are used to evaluate an expression.
+
+Later, we want to print the expression (not evaluate yet), in this case we are going to assume we can break the open close principle, so 
+we add the print function in the base class Expression, and implement it in the child classes.
+
+This kind of visitor is called intrusive visitor, since it takes the original classes and it modifies them. In this case is possible since there are
+only 3 classes, but if we had 20, 40 classes, it would be impossible. Also, in this kind of visitor the single resposibility principle is broken,
+since the printing is a separate function from the addition.
+*/
+
 struct Expression
 {
   virtual void print(ostringstream& oss) = 0;
@@ -44,7 +55,7 @@ struct AdditionExpression : Expression
   }
 };
 
-void main_2_()
+int main()
 {
   auto e = new AdditionExpression{
     new DoubleExpression{1},
@@ -56,4 +67,6 @@ void main_2_()
   ostringstream oss;
   e->print(oss);
   cout << oss.str() << endl;
+  delete e;
+  return 0;
 }

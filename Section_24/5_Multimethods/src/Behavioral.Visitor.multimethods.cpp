@@ -5,6 +5,23 @@
 #include <functional>
 using namespace std;
 
+/*
+In this example we are taking a look at the double dispatch used in the classic example in the section 3, but with the idea that the accept functions receive more than one argument (This is called multi-methods).
+The problem is that in the context of a visitor this can get really ugly, so we are going to use an example which is really old, which is the example of space collision.
+
+We have different types of objects, and depending on which one collides with which one, you have different behaviours.
+
+We have the global function collide, which takes two objects, and the base class GameObject, which inside of it reuses the global function collide.
+
+The class GameObjectImpl is an in-between class used to use CRTP. The Curiously Recurring Template Pattern (CRTP) is a C++ idiom where a class derives from a template instantiation of itself.
+It’s mainly used for static polymorphism — enabling compile-time resolution of behavior without the runtime cost of virtual functions. This is used for the classes Planet, Asteroid, etc., 
+so we can have the type_index of each one at compile time.
+
+Later we define the functions that define the behaviour of the possible collisions, and a map which relates the possible kind of objects (using the type_index) with the functions to call.
+
+Finally, we define the collide global function, using the map just defined to find the function to execute.
+*/
+
 struct GameObject;
 void collide(GameObject& first, GameObject& second);
 
@@ -61,7 +78,7 @@ void collide(GameObject& first, GameObject& second)
 	it->second();
 }
 
-int main__(int argc, char* argv[])
+int main(int argc, char* argv[])
 {
 	ArmedSpaceship spaceship;
 	Asteroid asteroid;
@@ -77,7 +94,5 @@ int main__(int argc, char* argv[])
 
 	// but this won't work
 	spaceship.collide(planet);
-
-	getchar();
 	return 0;
 }

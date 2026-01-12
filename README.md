@@ -668,19 +668,37 @@ So, the visitor design pattern is a pattern where a component (visitor) is allow
 the entire hierarchy, instead of implementing the visit method in each visitor. This way you have the hierarchy with the visit method, and then you can define visitors, which fulfills the 
 open close and single responsibility principles.
 
+The scenario presented in this section is the evaluation of numeric expressions. We have a tree of literals or doubles values and addition operations. We will then evaluate everything using
+different kind of visitor approaches.
+
 **Folders in the section**
 
 *1_Intrusive_visitor*
 
+An example of the intrusive visitor is created, where the original classes are modified to include the new functionalities. This approach is not recommended, since neither the single responsibility principle approach
+nor the open close principle are respected.
+
 *2_Reflective_visitor*
+
+An example of the reflective visitor is created, where reflexion mechanisms (dynamic casting) are used. This approach is not recommended, since the single responsibility principle is respected, but the open close and the
+scalability are not.
 
 *3_Classic_visitor*
 
+An example of a classic visitor is created, where the visitor class and double dispatch mechanism are used. This approach respects the single responsibility principle and the open close principle, but it is not a perfect solution. This is also called cyclic visitor, based on function overloading, but requires the hierarchy of classes to be stable and implement the accept method.
+
 *4_Acyclic_visitor*
+
+An example of the acyclic visitor is created, where the visitor class and the use of double dispatch mechanism ares used. This approach adds to the previous one the resilience that if we don't implement the visit function for a child class, the program does not crash, but the execution is slower.
 
 *5_Multimethods*
 
+An example on the double dispatch used in the classic example in the section 3, but with the idea that the accept functions receive more than one argument (This is called multi-methods). The visitor pattern is not used since it 
+complicates a lot the example.
+
 *6_Variant_and_std_visit*
+
+An example of the visitor pattern using std::variant and std::visit.
 
 *7_Assignment*
 
