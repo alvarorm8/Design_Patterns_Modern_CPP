@@ -671,6 +671,8 @@ open close and single responsibility principles.
 The scenario presented in this section is the evaluation of numeric expressions. We have a tree of literals or doubles values and addition operations. We will then evaluate everything using
 different kind of visitor approaches.
 
+The classic (cyclic) and acyclic visitors are the most used ones, based on the use of a function called *accept* in the class hierarchy. Then we create a visitor class with *visit* functions for each element in the hierarchy. In the accept method, we simply call visitor.visit(this) to call the visit function, which by inheritance will call the visitor passed as argument.
+
 **Folders in the section**
 
 *1_Intrusive_visitor*
